@@ -2,9 +2,10 @@ import numpy as np
 import cv2
 import json
 
-classes = ["chair", "sofa", "table"]
+classes = ["kursi01", "kursi02", "kursi03", "kursi04", "kursi05", "kursi06", "kursi07",
+           "kursi08", "kursi09", "kursi10", "kursi11", "kursi12", "meja01", "sofa01"]
 cap = cv2.VideoCapture(0)
-net = cv2.dnn.readNetFromONNX("best2.onnx")
+net = cv2.dnn.readNetFromONNX("furniture6.onnx")
 
 while True:
     _, img = cap.read()
@@ -42,6 +43,7 @@ while True:
     indices = cv2.dnn.NMSBoxes(boxes, confidences, 0.2, 0.2)
 
     for i in indices:
+        i = i.item()
         x1, y1, w, h = boxes[i]
         label = classes[classes_ids[i]]
         conf = confidences[i]
@@ -53,5 +55,3 @@ while True:
     cv2.imshow("Deteksi Objek", img)
     if cv2.waitKey(1) & 0xff == 27:
         break
-
-#+ "{:.2f}".format(conf)
