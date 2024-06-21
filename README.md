@@ -4,7 +4,6 @@
 
  install:
 
-- **Python 3.6 or higher**
 - **TensorFlow 2.x**
 - **Keras (included with TensorFlow 2.x)**
   
