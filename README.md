@@ -52,8 +52,8 @@ pip install tensorflow
 
 **7. Training the Model**
 
-Compile and train the model using the `train_generator` and `validation_generator`. Adjust the model architecture, optimizer, and loss function as needed to best fit the problem. The training process involves iterating over batches of data, optimizing the model's weights to minimize the loss function.
+- Compile and train the model using the `train_generator` and `validation_generator`. Adjust the model architecture, optimizer, and loss function as needed to best fit the problem. The training process involves iterating over batches of data, optimizing the model's weights to minimize the loss function.
 
 **8. Evaluate and Save the Model**
 
-After training, evaluate the model's performance on the validation set to ensure it generalizes well. Save the trained model for future use or deployment.
+- After training, evaluate the model's performance on the validation set to ensure it generalizes well. Save the trained model for future use or deployment.
