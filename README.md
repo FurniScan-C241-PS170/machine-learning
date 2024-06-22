@@ -1,7 +1,7 @@
 # FurniScan - Machine Learning
 ![download](https://github.com/FurniScan-C241-PS170/machine-learning/assets/147247858/7c701001-c139-4fb3-947c-cc271c732890)
 
-We utilize **Google Colab** for our Python Notebook to create a Machine Learning model. Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to compute resources, including GPU and TPU.
+We utilize **Google Colab** for our Python Notebook to create a Machine Learning model that can identify and classify various types of furniture from images. Colab is a hosted Jupyter Notebook service that requires no setup to use and provides a seamless experience with no setup required and offers free access to robust compute resources, including GPUs and TPUs.
 
 
 ## Prerequisites
@@ -27,27 +27,33 @@ pip install tensorflow
 
 **1. Import Libraries:**
 
-- `ImageDataGenerator` from `tensorflow.keras.preprocessing.image` is used for data preprocessing and augmentation.
+- `ImageDataGenerator` from `tensorflow.keras.preprocessing.image` is used for data preprocessing and augmentation, helps in enhancing the robustness and generalizability of our model by providing various transformations on the training images.=.
 
 **2. Set Parameters:**
 
-- `img_height` and `img_width` define the dimensions to resize all images to.
+- `img_height` and `img_width` define the dimensions to resize all images to standardization is essential for consistent input sizes into the model.
 - `batch_size` specifies the number of images to be yielded from the generator per batch.
 
 **3. Create Training Data Generator:**
 
-- `train_datagen` is configured with various augmentation techniques such as rescaling, rotation, shifting, shearing, zooming, and flipping.
+- `train_datagen` is configured with various augmentation techniques such as rescaling, rotation, shifting, shearing, zooming, and flipping, for creating a more diverse set of training data, which helps prevent overfitting and improves the model's ability to generalize.
 
 **4. Create Validation Data Generator:**
 
-- `val_datagen` is configured to only rescale the images.
+- `val_datagen` is configured to only rescale the images, prepares the validation dataset without applying augmentations, ensuring that we evaluate the model performance on clean, unaltered data.
 
 **5. Load Training Data:**
 
-- `train_generator` loads training data from the train directory, applies augmentations, and prepares the data in batches.
+- `train_generator` loads training data from the train directory, applies augmentations, and prepares the data in batches, making the training process more efficient and less memory-intensive.
 
 **6. Load Validation Data:**
 
-- `validation_generator` loads validation data from the validation directory, rescaling the images without further augmentations.
+- `validation_generator` loads validation data from the validation directory, rescaling the images without further augmentations, providing a standard evaluation dataset to test the model's performance during training.
 
 **7. Training the Model**
+
+Compile and train the model using the `train_generator` and `validation_generator`. Adjust the model architecture, optimizer, and loss function as needed to best fit the problem. The training process involves iterating over batches of data, optimizing the model's weights to minimize the loss function.
+
+**8. Evaluate and Save the Model**
+
+After training, evaluate the model's performance on the validation set to ensure it generalizes well. Save the trained model for future use or deployment.
